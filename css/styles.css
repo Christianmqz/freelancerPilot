@@ -1,0 +1,227 @@
+:root {
+    --rojo: rgb(221, 68, 68);
+    --blanco: rgb(255, 255, 255);
+    --oscuro: rgb(33, 33, 33);
+    --gris: rgb(117, 117, 117);
+    --grisClaro: rgb(192, 192, 192);
+}
+
+ 
+
+body {
+    font-size: 16px; /* 1rem  = 10px */
+    font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(to top, #DFE9F3 0%, var(--blanco) 100%);
+}
+/* Design system: Define la base de la tipografía dentro del documento */
+h1{
+    font-size: 3.8rem;
+    font-weight: normal;
+}
+h2{
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+h1, h2, h3{
+    text-align: center;
+}
+
+.titulo span {
+    color: var(--rojo);
+    font-size: 2rem;
+    font-weight: 700;
+}
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto; /* 'margin' es la propiedad que permite añadir espacio alrededor de los elementos */
+    /* Atajo: margin: ↥ ↦ ↧ ↤; */
+}
+.sombra{
+    /* 'webkit' utilizado en Chrome & 'moz' utilizado en Firefox */
+    -webkit-box-shadow: 2px 10px 10px 5px rgba(112,112,112,0.45);
+    -moz-box-shadow: 2px 10px 10px 5px rgba(112,112,112,0.45);
+    box-shadow: 2px 10px 10px 5px rgba(112,112,112,0.45);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.boton{
+    background-color: var(--gris);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 1.8rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem; /* Redondea las esquinas */
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+@media (min-width: 768px) {
+    .boton{
+        margin-top: 5rem;
+        width:auto; /* Reinicia el ancho */
+    }
+}
+.boton:hover{
+    cursor: pointer; /* Ayuda a identificar el boton del formulario 'Enviar' */
+}
+.nav-background {
+    background-color: var(--rojo);
+}
+.nav-principal {
+    display: flex; /* Añade el flexbox al elemento */
+    flex-direction: column;
+}
+.w-100{
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .w-100{
+        width: auto;
+    }
+}
+.flex{
+    display: flex;
+}
+.alinear-derecha{
+    justify-content: flex-end;
+}
+/* Standard screen width:
+-   Celular: 480px
+-   Tablet: 768px
+-   Laptop: 1140px
+-   PC: 1440px
+*/
+@media (min-width: 768px) {
+    .nav-principal{
+        flex-direction: row;
+        justify-content: space-between; /* Propiedad del flexbox en el eje row */
+    }    
+}
+.nav-principal a {
+    display: block;
+    text-align: center;
+    color: var(--oscuro);
+    text-decoration: none; /* Quita el subrayado por default*/
+    /* text-decoration: line-through; Pone una línea en medio del texto, utilizada en sitios de ofertas*/
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: bold; /* bold = 700 / normal = 400 */
+}
+.nav-principal a:hover {
+    background-color: var(--oscuro);
+    color: var(--blanco)
+}
+ .hero{
+    background-image: url(../images/hero.jpg); /* '..' nos permite salir de la carpeta actual */
+    background-repeat: no-repeat; /* Evita que se muestre la imagen multiples veces */
+    background-size: cover; /* Ajusta el ancho de la imagen con el tamaño de la pantalla */
+    height: 45rem;
+    position: relative;
+    margin-bottom: 2rem;
+ }
+ .contenido-hero{   /* Modifica la transparencia de la imagen */
+    position: absolute;
+    background-color: rgba( 0,0,0, .4 ); /* Sintaxis Anterior */
+    background-color: rgb( 0 0 0/ 40% );
+    width: 100%;
+    height: 100%;
+    /* Centra el texto del elemento */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+ }
+.contenido-hero h2, .contenido-hero p{
+    color: var(--blanco);
+}
+@media (min-width: 768px) {
+    .servicios{
+        display: grid;
+        /*grid-template-columns: 300px 300px;
+        grid-template-rows: 200px 800px;*/
+        /* 'grid: 200px 800px / 300px 300px;' version corta */
+        grid-template-columns: repeat(3, 1fr); /* Op 1. '33.3% 33.3% 33.3%' Op 2. '1fr 1fr 1fr' */
+        column-gap: 1rem;
+    }
+}
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.servicio h3{
+    color: var(--rojo);
+    font-weight: normal;
+}
+.servicio p{
+    line-height: 2;
+    text-align: center;
+}
+.servicio .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--grisClaro);
+    border-radius: 50%; /* forma de circulo */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.formulario{
+    background-color: var(--rojo);
+    width: min( 60rem, 100% ); /* Utiliza el valor mas pequeño entre 60rem y 100% */
+    margin: 0 auto; /* Es mejor utilizarlo en elementos donde el padre no sea un flexbox */
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.formulario fieldset{
+    border: none; /* Elimina el borde por default de HTML */
+}
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: var(--blanco);
+}
+.campos{
+    margin-bottom: 1rem;
+}
+.campos label{
+    color: var(--oscuro);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+.campos input,
+.campos textarea{
+    width: 100%;
+    border: none; /* Elimina el borde por default de HTML*/
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+.campos textarea{
+    height: 20rem;
+}
+@media (min-width: 768px) {
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+    }
+    /* 'nth-child' toma el elemento n de una clase, empezando por el 1 */
+    .campos:nth-child(3),
+    .campos:nth-child(4){
+        grid-column: 1 / 3;
+    }
+}
+.footer{
+    text-align: center;
+}
